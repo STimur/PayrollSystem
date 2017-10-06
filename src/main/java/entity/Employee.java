@@ -7,6 +7,7 @@ public class Employee {
     public PaymentClassification classification;
     public PaymentSchedule schedule;
     public PaymentMethod method;
+    public Affiliation affiliation;
 
     public Employee(int id, String name, String address) {
         this.id = id;
