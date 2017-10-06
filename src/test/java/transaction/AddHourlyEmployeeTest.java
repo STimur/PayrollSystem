@@ -7,11 +7,11 @@ import org.junit.Test;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
-public class AddSalariedEmployeeTest {
+public class AddHourlyEmployeeTest {
     @Test
-    public void AddSalariedEmployee() throws Exception {
-        int empdId = 1;
-        AddSalariedEmployee t = new AddSalariedEmployee(empdId, "Bob", "Home", 50);
+    public void addHourlyEmployee() throws Exception {
+        int empdId = 2;
+        AddHourlyEmployee t = new AddHourlyEmployee(empdId, "Bob", "Home", 50);
         t.execute();
 
         Employee e = PayrollDatabase.getEmployee(empdId);
@@ -19,11 +19,11 @@ public class AddSalariedEmployeeTest {
         assertEquals("Home", e.address);
 
         PaymentClassification pc = e.classification;
-        assertTrue(pc instanceof SalariedClassification);
-        SalariedClassification sc = (SalariedClassification) pc;
-        assertEquals(50, sc.salary);
+        assertTrue(pc instanceof HourlyClassification);
+        HourlyClassification hc = (HourlyClassification) pc;
+        assertEquals(50, hc.hourlyRate);
         PaymentSchedule ps = e.schedule;
-        assertTrue(ps instanceof MonthlySchedule);
+        assertTrue(ps instanceof WeeklySchedule);
 
         PaymentMethod pm = e.method;
         assertTrue(pm instanceof HoldMethod);

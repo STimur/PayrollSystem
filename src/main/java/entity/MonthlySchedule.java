@@ -1,4 +1,4 @@
 package entity;
 
-public class MonthlySchedule {
+public class MonthlySchedule extends PaymentSchedule {
 }

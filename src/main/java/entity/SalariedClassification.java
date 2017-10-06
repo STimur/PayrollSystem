@@ -1,6 +1,6 @@
 package entity;
 
-public class SalariedClassification {
+public class SalariedClassification extends PaymentClassification {
     public int salary;
 
     public SalariedClassification(int salary) {

@@ -1,23 +1,25 @@
 package transaction;
 
-import boundary.PayrollDatabase;
-import entity.Employee;
+import entity.MonthlySchedule;
+import entity.PaymentClassification;
+import entity.PaymentSchedule;
+import entity.SalariedClassification;
 
-public class AddSalariedEmployee {
-    private final int empId;
-    private final String name;
-    private final String address;
+public class AddSalariedEmployee extends AddEmployeeTransaction {
     private final int salary;
 
-    public AddSalariedEmployee(int empdId, String name, String address, int salary) {
-        this.empId = empdId;
-        this.name = name;
-        this.address = address;
+    public AddSalariedEmployee(int empId, String name, String address, int salary) {
+        super(empId, name, address);
         this.salary = salary;
     }
 
-    public void execute() {
-        Employee employee = new Employee(empId, name, address, salary);
-        PayrollDatabase.addEmployee(empId, employee);
+    @Override
+    protected PaymentSchedule MakeSchedule() {
+        return new MonthlySchedule();
+    }
+
+    @Override
+    protected PaymentClassification MakeClassification() {
+        return new SalariedClassification(salary);
     }
 }

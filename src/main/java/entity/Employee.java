@@ -4,16 +4,13 @@ public class Employee {
     private int id;
     public String name;
     public String address;
-    public SalariedClassification classification;
-    public MonthlySchedule schedule;
-    public HoldMethod method;
+    public PaymentClassification classification;
+    public PaymentSchedule schedule;
+    public PaymentMethod method;
 
-    public Employee(int id, String name, String address, int salary) {
+    public Employee(int id, String name, String address) {
         this.id = id;
         this.name = name;
         this.address = address;
-        classification = new SalariedClassification(salary);
-        schedule = new MonthlySchedule();
-        method = new HoldMethod();
     }
 }
