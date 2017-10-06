@@ -3,10 +3,10 @@ package transaction;
 import boundary.PayrollDatabase;
 import entity.*;
 
-public abstract class AddEmployeeTransaction {
-    protected final String address;
-    protected final String name;
-    protected final int empId;
+public abstract class AddEmployeeTransaction implements Transaction {
+    private final String address;
+    private final String name;
+    private final int empId;
 
     public AddEmployeeTransaction(int empId, String name, String address) {
         this.empId = empId;
@@ -14,6 +14,7 @@ public abstract class AddEmployeeTransaction {
         this.address = address;
     }
 
+    @Override
     public void execute() {
         PaymentClassification pc = MakeClassification();
         PaymentSchedule ps = MakeSchedule();

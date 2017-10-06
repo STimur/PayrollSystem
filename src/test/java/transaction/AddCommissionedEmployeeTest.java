@@ -11,7 +11,7 @@ public class AddCommissionedEmployeeTest {
     @Test
     public void addCommissionedEmployee() throws Exception {
         int empdId = 2;
-        AddCommissionedEmployee t = new AddCommissionedEmployee(empdId, "Bob", "Home", 1000, 0.2);
+        Transaction t = new AddCommissionedEmployee(empdId, "Bob", "Home", 1000, 0.2);
         t.execute();
 
         Employee e = PayrollDatabase.getEmployee(empdId);
