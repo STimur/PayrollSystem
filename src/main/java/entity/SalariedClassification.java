@@ -1,5 +1,9 @@
 package entity;
 
 public class SalariedClassification {
-    public int salary = 50;
+    public int salary;
+
+    public SalariedClassification(int salary) {
+        this.salary = salary;
+    }
 }
