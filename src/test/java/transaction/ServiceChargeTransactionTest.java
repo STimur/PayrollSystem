@@ -20,7 +20,7 @@ public class ServiceChargeTransactionTest {
         Employee e = PayrollDatabase.getEmployee(empId);
         assertNotNull(e);
 
-        UnionAffiliation af = new UnionAffiliation();
+        UnionAffiliation af = new UnionAffiliation(2356, 22.13);
         e.affiliation = af;
         int memberId = 86; // Maxwell Smart
         PayrollDatabase.addUnionMember(memberId, e);
