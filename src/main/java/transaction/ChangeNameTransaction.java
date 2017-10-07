@@ -1,33 +1,18 @@
 package transaction;
 
-import boundary.PayrollDatabase;
 import entity.Employee;
 
-public class ChangeNameTransaction implements Transaction {
-    private final int empId;
-    private final String name;
+public class ChangeNameTransaction extends ChangeEmployeeTransaction {
+    private final String newName;
 
-    public ChangeNameTransaction(int empId, String name) {
-        this.empId = empId;
-        this.name = name;
+    public ChangeNameTransaction(int empId, String newName) {
+        super(empId);
+        this.newName = newName;
     }
 
     @Override
-    public void execute() {
-        Employee e = PayrollDatabase.getEmployee(empId);
-        if (e != null)
-            change(e);
-        else
-            throw new InvalidOperationException("No such employee.");
+    protected void change(Employee e) {
+        e.name = newName;
     }
 
-    private void change(Employee e) {
-        e.name = name;
-    }
-
-    private class InvalidOperationException extends RuntimeException {
-        public InvalidOperationException(String msg) {
-            super(msg);
-        }
-    }
 }
