@@ -6,7 +6,7 @@ import java.util.List;
 
 public class UnionAffiliation extends Affiliation {
     public final double dues;
-    private final int memberId;
+    public final int memberId;
     private List<ServiceCharge> serviceCharges = new ArrayList<>();
 
     public UnionAffiliation(int memberId, double dues) {
